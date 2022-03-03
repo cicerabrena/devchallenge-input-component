@@ -1259,6 +1259,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/noto-sans-jp@^4.5.4":
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans-jp/-/noto-sans-jp-4.5.4.tgz#31f0bf4190425c6c557cac4764a1cf79646f9977"
+  integrity sha512-kGOvRKEuNKr7cPuFM66k96n/KQjca21fojOVfVIQlt8oNIx4Ey6QHhd2lBsfdfHzdgDv6RNnt/ESrywQApasaw==
+
 "@gar/promisify@^1.0.1":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
