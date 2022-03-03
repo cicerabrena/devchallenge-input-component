@@ -16,15 +16,26 @@ Style.Container = styled.div`
 				${error ? theme.colors['red.600'] : theme.colors['gray.500']};
 		}
 
+		span {
+			color: ${error ? theme.colors['red.600'] : theme.colors['gray.500']};
+		}
+
 		&:hover {
-			label {
+			label,
+			span {
 				color: ${theme.colors['gray.600']};
 			}
 		}
 
 		&:focus-within {
-			label {
+			label,
+			span {
 				color: ${error ? theme.colors['red.600'] : theme.colors['blue.600']};
+			}
+
+			input {
+				border: 1px solid
+					${error ? theme.colors['red.600'] : theme.colors['blue.600']};
 			}
 		}
 	`}
@@ -38,7 +49,7 @@ Style.Label = styled.label`
 `;
 
 Style.Input = styled.input`
-	${({ error, theme }) => css`
+	${({ disabled, theme }) => css`
 		width: 200px;
 		height: 56px;
 		border-radius: 0.5rem;
@@ -51,7 +62,10 @@ Style.Input = styled.input`
 		}
 
 		&:hover {
-			border: 1px solid ${theme.colors['gray.600']};
+			border: 1px solid
+				${disabled
+					? `${theme.colors['gray.300']}`
+					: `${theme.colors['gray.600']}`};
 		}
 
 		&:disabled {
@@ -62,8 +76,6 @@ Style.Input = styled.input`
 
 		&:focus {
 			outline: none;
-			border: 1px solid
-				${error ? theme.colors['red.600'] : theme.colors['blue.600']};
 
 			label {
 				color: ${theme.colors['red.600']};
@@ -72,6 +84,10 @@ Style.Input = styled.input`
 	`}
 `;
 
-Style.Span = styled.span``;
+Style.Span = styled.span`
+	display: inline-block;
+	margin-top: 0.4rem;
+	font-size: 0.625rem;
+`;
 
 export default Style;
