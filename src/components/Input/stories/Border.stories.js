@@ -3,6 +3,18 @@ import Input from '..';
 export default {
 	component: Input,
 	title: 'Input/Border',
+	argTypes: {
+		error: {
+			table: {
+				disable: true
+			}
+		},
+		helperText: {
+			table: {
+				disable: true
+			}
+		}
+	}
 };
 
 const Template = function Template(args) {
