@@ -7,33 +7,50 @@ Style.Container = styled.div`
 		display: flex;
 		flex-direction: column;
 
-		label {
+		${Style.Label} {
 			color: ${error ? theme.colors['red.600'] : theme.colors['gray.600']};
 		}
 
-		input {
-			border: 1px solid
-				${error ? theme.colors['red.600'] : theme.colors['gray.500']};
-		}
-
-		span {
+		span, ${Style.Small} {
 			color: ${error ? theme.colors['red.600'] : theme.colors['gray.500']};
 		}
 
+		${Style.Input} {
+			border: 1px solid
+				${error ? theme.colors['red.600'] : theme.colors['gray.500']};
+
+			&:not(.hasIcon):hover {
+				border: 1px solid ${theme.colors['gray.600']};
+			}
+		}
+
 		&:hover {
-			label,
-			span {
+			${Style.Label}, ${Style.Small} {
 				color: ${theme.colors['gray.600']};
+			}
+
+			${Style.InputGroup} {
+				border: 1px solid
+					${error ? theme.colors['red.600'] : theme.colors['gray.600']};
 			}
 		}
 
 		&:focus-within {
-			label,
+			${Style.Label},
 			span {
 				color: ${error ? theme.colors['red.600'] : theme.colors['blue.600']};
 			}
 
-			input {
+			${Style.Small} {
+				color: ${error ? theme.colors['red.600'] : theme.colors['blue.600']};
+			}
+
+			${Style.Input}:not(.hasIcon) {
+				border: 1px solid
+					${error ? theme.colors['red.600'] : theme.colors['blue.600']};
+			}
+
+			${Style.InputGroup} {
 				border: 1px solid
 					${error ? theme.colors['red.600'] : theme.colors['blue.600']};
 			}
@@ -49,7 +66,7 @@ Style.Label = styled.label`
 `;
 
 Style.Input = styled.input`
-	${({ disabled, theme }) => css`
+	${({ theme }) => css`
 		width: 200px;
 		height: 56px;
 		border-radius: 0.5rem;
@@ -57,15 +74,11 @@ Style.Input = styled.input`
 		font-family: 'Noto Sans JP';
 		font-weight: 500;
 
+		border: none;
+		outline: none;
+
 		&::placeholder {
 			font-size: 0.875rem;
-		}
-
-		&:hover {
-			border: 1px solid
-				${disabled
-					? `${theme.colors['gray.300']}`
-					: `${theme.colors['gray.600']}`};
 		}
 
 		&:disabled {
@@ -84,10 +97,35 @@ Style.Input = styled.input`
 	`}
 `;
 
-Style.Span = styled.span`
+Style.InputGroup = styled.div`
+	max-width: fit-content;
+	display: inline-flex;
+	align-items: center;
+	border-radius: 0.5rem;
+
+	border: 1px solid ${({ theme }) => theme.colors['gray.500']};
+	
+	input {
+		width: 120px;
+		height: 50px;
+		border: none !important;
+	}
+	
+	span {
+		&.start {
+			margin-left: 0.6rem;
+		}
+		&.end {
+			margin-right: 0.6rem;
+		}
+	}
+`;
+
+Style.Small = styled.small`
 	display: inline-block;
 	margin-top: 0.4rem;
 	font-size: 0.625rem;
+	color: #828282;
 `;
 
 export default Style;
