@@ -9,6 +9,16 @@ export default {
 				disable: true,
 			},
 		},
+		startIcon: {
+			table: {
+				disable: true,
+			},
+		},
+		endIcon: {
+			table: {
+				disable: true,
+			},
+		},
 	},
 };
 

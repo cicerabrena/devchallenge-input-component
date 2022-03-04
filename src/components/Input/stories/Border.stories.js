@@ -6,15 +6,25 @@ export default {
 	argTypes: {
 		error: {
 			table: {
-				disable: true
-			}
+				disable: true,
+			},
 		},
 		helperText: {
 			table: {
-				disable: true
-			}
-		}
-	}
+				disable: true,
+			},
+		},
+		startIcon: {
+			table: {
+				disable: true,
+			},
+		},
+		endIcon: {
+			table: {
+				disable: true,
+			},
+		},
+	},
 };
 
 const Template = function Template(args) {
