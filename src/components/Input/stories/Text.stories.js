@@ -19,6 +19,21 @@ export default {
 				disable: true,
 			},
 		},
+		fullWidth: {
+			table: {
+				disable: true,
+			},
+		},
+		value: {
+			table: {
+				disable: true,
+			},
+		},
+		size: {
+			table: {
+				disable: true,
+			},
+		},
 	},
 };
 
