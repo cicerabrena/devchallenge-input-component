@@ -11,7 +11,8 @@ Style.Container = styled.div`
 			color: ${error ? theme.colors['red.600'] : theme.colors['gray.600']};
 		}
 
-		span, ${Style.Small} {
+		span,
+		${Style.Small} {
 			color: ${error ? theme.colors['red.600'] : theme.colors['gray.500']};
 		}
 
@@ -29,7 +30,7 @@ Style.Container = styled.div`
 				color: ${theme.colors['gray.600']};
 			}
 
-			${Style.InputGroup} {
+			${Style.InputGroup}, ${Style.Textarea} {
 				border: 1px solid
 					${error ? theme.colors['red.600'] : theme.colors['gray.600']};
 			}
@@ -50,7 +51,7 @@ Style.Container = styled.div`
 					${error ? theme.colors['red.600'] : theme.colors['blue.600']};
 			}
 
-			${Style.InputGroup} {
+			${Style.InputGroup}, ${Style.Textarea} {
 				border: 1px solid
 					${error ? theme.colors['red.600'] : theme.colors['blue.600']};
 			}
@@ -66,13 +67,14 @@ Style.Label = styled.label`
 `;
 
 Style.Input = styled.input`
-	${({ theme }) => css`
-		width: 200px;
-		height: 56px;
+	${({ size, fullWidth, theme }) => css`
+		width: ${fullWidth ? '100%' : '200px'};
+		height: ${size === 'md' ? '56px' : '40px'};
 		border-radius: 0.5rem;
 		padding: 0 0.6rem;
 		font-family: 'Noto Sans JP';
 		font-weight: 500;
+		font-size: 0.875rem;
 
 		border: none;
 		outline: none;
@@ -104,13 +106,13 @@ Style.InputGroup = styled.div`
 	border-radius: 0.5rem;
 
 	border: 1px solid ${({ theme }) => theme.colors['gray.500']};
-	
+
 	input {
 		width: 120px;
 		height: 50px;
 		border: none !important;
 	}
-	
+
 	span {
 		&.start {
 			margin-left: 0.6rem;
@@ -119,6 +121,37 @@ Style.InputGroup = styled.div`
 			margin-right: 0.6rem;
 		}
 	}
+`;
+
+Style.Textarea = styled.textarea`
+${({ fullWidth, row, theme }) => css`
+	width: ${fullWidth ? '100%' : '200px'};
+	height: ${row !== 0 ? `${row * 30}px` : '56px'};
+	border-radius: 0.5rem;
+	padding: 0.5rem 0.6rem;
+	font-family: 'Noto Sans JP';
+	font-weight: 500;
+	font-size: 0.875rem;
+	resize: none;
+
+	&::placeholder {
+		font-size: 0.875rem;
+	}
+
+	&:disabled {
+		pointer-events: none;
+		border: 1px solid ${theme.colors['gray.300']};
+		background-color: ${theme.colors['gray.200']};
+	}
+
+	&:focus {
+		outline: none;
+
+		label {
+			color: ${theme.colors['red.600']};
+		}
+	}
+`}
 `;
 
 Style.Small = styled.small`
