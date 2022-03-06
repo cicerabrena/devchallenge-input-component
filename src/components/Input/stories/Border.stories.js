@@ -24,16 +24,23 @@ export default {
 				disable: true,
 			},
 		},
+		size: {
+			table: {
+				disable: true
+			}
+		}
 	},
 };
 
 const Template = function Template(args) {
-	const { error, disabled } = args;
-	return <Input error={error} disabled={disabled} />;
+	const { error, disabled, value } = args;
+	return <Input error={error} disabled={disabled} value={value} />;
 };
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+	value: "Text"
+};
 
 export const Error = Template.bind({});
 Error.args = {
