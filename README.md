@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Demo on Vercel" src="https://i.ibb.co/hRLKgD7/input-component.gif" />
+    <img alt="Demo on Vercel" src="https://i.ibb.co/q7fqzJT/input-component.gif" />
     <br>
     Input Component
 </h1>
